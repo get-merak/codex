@@ -14,11 +14,11 @@ Failed: 0
 | tool-selection | PASS | scripts/merak_plan_eval_report.py<br>artifacts/merak-plan-eval/merak-plan-eval-report.json | - |
 | terminal-mp4-demo | PASS | artifacts/merak-plan-demo/merak-plan-demo.mp4<br>artifacts/merak-plan-demo/merak-plan-demo.txt<br>artifacts/merak-plan-demo/merak-plan-demo-eval-report.json | - |
 | five-user-simulations | PASS | scripts/merak_plan_user_sim.py<br>artifacts/merak-plan-user-sim/merak-plan-user-sim-report.md<br>artifacts/merak-plan-user-sim/merak-plan-user-sim.txt<br>artifacts/merak-plan-user-sim/merak-plan-user-sim.mp4 | - |
-| modal-cleanup-spend | PASS | /Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json | - |
+| modal-cleanup-spend | PASS | <external>/codex-merak-plan-summary-review-tui-rerun-post.json | - |
 
 ## Modal Spend
 
-- Snapshot: /Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json
+- Snapshot: <external>/codex-merak-plan-summary-review-tui-rerun-post.json
 - Recorded at: 2026-06-12T03:15:35.049719+00:00
 - Active containers: 0
 - Reported cost USD: 0.91328880

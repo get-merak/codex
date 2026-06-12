@@ -96,7 +96,7 @@
     },
     {
       "evidence": [
-        "/Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json"
+        "<external>/codex-merak-plan-summary-review-tui-rerun-post.json"
       ],
       "id": "modal-cleanup-spend",
       "notes": [],
@@ -109,7 +109,7 @@
     "billing_exit_code": 0,
     "recorded_at": "2026-06-12T03:15:35.049719+00:00",
     "reported_cost_usd": "0.91328880",
-    "snapshot_path": "/Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json",
+    "snapshot_path": "<external>/codex-merak-plan-summary-review-tui-rerun-post.json",
     "snapshot_readable": true
   },
   "summary": {

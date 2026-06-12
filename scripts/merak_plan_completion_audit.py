@@ -48,8 +48,8 @@ def main() -> int:
     markdown_path.write_text(markdown_report(report), encoding="utf-8")
 
     summary = report["summary"]
-    print(f"wrote {json_path}")
-    print(f"wrote {markdown_path}")
+    print(f"wrote {path_label(json_path)}")
+    print(f"wrote {path_label(markdown_path)}")
     print(
         "merak_plan_completion_audit "
         f"passed={summary['passed']} "
@@ -355,7 +355,7 @@ def audit_modal_cleanup_and_spend(modal_spend_file: Path | None, modal_snapshot:
         id="modal-cleanup-spend",
         requirement="Modal/container work is stopped after runs and spend is reported.",
         passed=all(checks.values()),
-        evidence=(str(modal_spend_file),),
+        evidence=(safe_path_label(modal_spend_file),),
         notes=failed_checks(checks),
     )
 
@@ -363,7 +363,7 @@ def audit_modal_cleanup_and_spend(modal_spend_file: Path | None, modal_snapshot:
 def modal_spend_summary(modal_spend_file: Path | None, modal_snapshot: Any) -> dict[str, Any]:
     if modal_spend_file is None or modal_snapshot is None:
         return {
-            "snapshot_path": str(modal_spend_file) if modal_spend_file else None,
+            "snapshot_path": safe_path_label(modal_spend_file) if modal_spend_file else None,
             "snapshot_readable": False,
             "active_container_count": None,
             "billing_exit_code": None,
@@ -375,7 +375,7 @@ def modal_spend_summary(modal_spend_file: Path | None, modal_snapshot: Any) -> d
     total_cost = sum(Decimal(str(row.get("Cost", "0"))) for row in billing_rows)
     containers = modal_snapshot.get("containers", {})
     return {
-        "snapshot_path": str(modal_spend_file),
+        "snapshot_path": safe_path_label(modal_spend_file),
         "snapshot_readable": True,
         "active_container_count": containers.get("active_count"),
         "billing_exit_code": billing.get("exit_code"),
@@ -425,7 +425,14 @@ def path_label(path: Path) -> str:
     try:
         return str(path.relative_to(REPO_ROOT))
     except ValueError:
-        return str(path)
+        return safe_path_label(path)
+
+
+def safe_path_label(path: Path) -> str:
+    expanded = path.expanduser()
+    if expanded.is_absolute():
+        return f"<external>/{expanded.name}"
+    return str(path)
 
 
 def markdown_report(report: dict[str, Any]) -> str:

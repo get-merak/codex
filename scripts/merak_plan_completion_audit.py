@@ -50,12 +50,7 @@ def main() -> int:
     summary = report["summary"]
     print(f"wrote {path_label(json_path)}")
     print(f"wrote {path_label(markdown_path)}")
-    print(
-        "merak_plan_completion_audit "
-        f"passed={summary['passed']} "
-        f"failed={summary['failed']} "
-        f"total={summary['total']}"
-    )
+    print("merak_plan_completion_audit complete")
     return 0 if summary["failed"] == 0 else 1
 
 

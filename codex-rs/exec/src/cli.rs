@@ -31,6 +31,10 @@ pub struct Cli {
     #[arg(long = "ephemeral", global = true, default_value_t = false)]
     pub ephemeral: bool,
 
+    /// Submit the turn using the Merak Plan collaboration mode.
+    #[arg(long = "merak-plan-mode", global = true, default_value_t = false)]
+    pub merak_plan_mode: bool,
+
     /// Do not load `$CODEX_HOME/config.toml`; auth still uses `CODEX_HOME`.
     #[arg(long = "ignore-user-config", global = true, default_value_t = false)]
     pub ignore_user_config: bool,

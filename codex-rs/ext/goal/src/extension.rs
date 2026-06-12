@@ -213,10 +213,7 @@ where
                 input.collaboration_mode.mode,
                 input.token_usage_at_turn_start,
             );
-            if matches!(
-                input.collaboration_mode.mode,
-                codex_protocol::config_types::ModeKind::Plan
-            ) {
+            if input.collaboration_mode.mode.is_plan_like() {
                 accounting.clear_current_turn_goal();
                 return;
             }

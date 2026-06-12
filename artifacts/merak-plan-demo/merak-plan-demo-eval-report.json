@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "category": "Ambiguous goals",
+      "findings": [],
+      "passed": true,
+      "prompt": "Make planning feel Claude Code level.",
+      "scenario_id": "ambiguous-goal"
+    },
+    {
+      "category": "Backend work",
+      "findings": [],
+      "passed": true,
+      "prompt": "Add a new API field that is persisted and returned by task execution endpoints.",
+      "scenario_id": "backend-work"
+    },
+    {
+      "category": "Demo generation",
+      "findings": [],
+      "passed": true,
+      "prompt": "Record a terminal MP4 showing three planning scenarios end-to-end.",
+      "scenario_id": "demo-generation"
+    }
+  ],
+  "summary": {
+    "expected_demo_scenarios": [
+      "ambiguous-goal",
+      "backend-work",
+      "demo-generation"
+    ],
+    "failed": 0,
+    "passed": 3,
+    "total": 3
+  }
+}

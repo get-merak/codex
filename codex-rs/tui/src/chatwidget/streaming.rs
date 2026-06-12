@@ -109,7 +109,7 @@ impl ChatWidget {
     }
 
     pub(super) fn on_plan_delta(&mut self, delta: String) {
-        if self.active_mode_kind() != ModeKind::Plan {
+        if !self.active_mode_kind().is_plan_like() {
             return;
         }
         if !delta.is_empty() {

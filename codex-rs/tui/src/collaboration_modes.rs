@@ -53,6 +53,10 @@ pub(crate) fn default_mode_mask(model_catalog: &ModelCatalog) -> Option<Collabor
     mask_for_kind(model_catalog, ModeKind::Default)
 }
 
+pub(crate) fn merak_plan_mask(model_catalog: &ModelCatalog) -> Option<CollaborationModeMask> {
+    mask_for_kind(model_catalog, ModeKind::MerakPlan)
+}
+
 pub(crate) fn plan_mask(model_catalog: &ModelCatalog) -> Option<CollaborationModeMask> {
     mask_for_kind(model_catalog, ModeKind::Plan)
 }

@@ -1,0 +1,137 @@
+[
+  {
+    "confidence_gaps": [
+      "reference behavior",
+      "quality rubric"
+    ],
+    "counter_metric": "no scenario asks more than 3 unnecessary questions.",
+    "discoverable_unknowns": [
+      "current planning prompt",
+      "existing eval coverage"
+    ],
+    "evidence_artifacts": [
+      "eval report"
+    ],
+    "planning_summary": "approved with benchmark proof as the handoff gate.",
+    "question_topics": [
+      "comparison baseline"
+    ],
+    "residual_risks": [
+      "benchmark can overfit without live task replay."
+    ],
+    "scenario_id": "ambiguous-goal",
+    "scope_in": [
+      "Merak Plan mode prompt",
+      "eval rubric",
+      "focused behavior tests."
+    ],
+    "scope_out": [
+      "full TUI redesign",
+      "claims outside the benchmark."
+    ],
+    "success_metric": "10/10 golden scenarios pass required checks.",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "comparison baseline",
+      "acceptance proof"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "schema owner",
+      "migration reversibility"
+    ],
+    "counter_metric": "migration remains reversible and existing endpoints stay green.",
+    "discoverable_unknowns": [
+      "schema owner",
+      "existing migration pattern"
+    ],
+    "evidence_artifacts": [
+      "pytest output"
+    ],
+    "planning_summary": "user confirms API contract before edits start.",
+    "question_topics": [
+      "field contract"
+    ],
+    "residual_risks": [
+      "hidden clients may depend on response shape."
+    ],
+    "scenario_id": "backend-work",
+    "scope_in": [
+      "data model",
+      "schema",
+      "API response",
+      "targeted service tests."
+    ],
+    "scope_out": [
+      "unrelated task review UI and historical data backfill ceremony."
+    ],
+    "success_metric": "API returns review_status for new and existing executions.",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "targeted_tests",
+      "migration_cycle",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "field contract",
+      "compatibility risk"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "recording tool availability",
+      "scenario coverage"
+    ],
+    "counter_metric": "Modal containers end at zero active after generation.",
+    "discoverable_unknowns": [
+      "recording tool availability",
+      "modal cleanup path"
+    ],
+    "evidence_artifacts": [
+      "terminal mp4"
+    ],
+    "planning_summary": "user approves scenarios, format, and cleanup proof.",
+    "question_topics": [
+      "demo scenarios",
+      "artifact format",
+      "runtime budget"
+    ],
+    "residual_risks": [
+      "scripted demo proves UX shape",
+      "not live model quality."
+    ],
+    "scenario_id": "demo-generation",
+    "scope_in": [
+      "deterministic terminal MP4",
+      "cast",
+      "transcript",
+      "spend evidence."
+    ],
+    "scope_out": [
+      "full live TUI redesign and broad model-quality claims."
+    ],
+    "success_metric": "MP4 shows 3 adapted plans and all required plan fields.",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "modal_sandbox",
+      "spend_report",
+      "stop_remote_work",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "demo scenarios",
+      "runtime budget"
+    ]
+  }
+]

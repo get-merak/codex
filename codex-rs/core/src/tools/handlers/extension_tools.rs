@@ -101,7 +101,7 @@ impl TurnItemEmitter for CoreTurnItemEmitter {
                 turn.as_ref(),
                 TurnItemContributorPolicy::Run(turn.extension_data.as_ref()),
                 &mut item,
-                turn.collaboration_mode.mode == codex_protocol::config_types::ModeKind::Plan,
+                turn.collaboration_mode.mode.is_plan_like(),
             )
             .await;
             session.emit_turn_item_completed(turn.as_ref(), item).await;

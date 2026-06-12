@@ -1,0 +1,17 @@
+---
+source: tui/src/bottom_pane/request_user_input/mod.rs
+expression: "render_snapshot(&overlay, area)"
+---
+                                                                                                                        
+  Question 1/1 (1 unanswered)                                                                                           
+  Review the planning summary before implementation: scope is bounded, evidence is screenshots plus targeted tests,     
+  and unresolved gaps are viewport evidence and ownership.                                                              
+                                                                                                                        
+  › 1. Approve plan  Recommended  Proceed with this plan and keep the listed proof gates.                               
+    2. Revise scope               Change what is in or out before implementation.                                       
+    3. Add risk or evidence       Require another confidence gap, counter-metric, or artifact.                          
+                                                                                                                        
+  tab to add notes | enter to submit answer | esc to interrupt                                                          
+                                                                                                                        
+                                                                                                                        
+                                                                                                                        

@@ -79,6 +79,11 @@ async fn request_user_input_round_trip_resolves_pending() -> anyhow::Result<()> 
     request_user_input_round_trip_for_mode(ModeKind::Plan).await
 }
 
+#[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+async fn request_user_input_round_trip_resolves_pending_in_merak_plan() -> anyhow::Result<()> {
+    request_user_input_round_trip_for_mode(ModeKind::MerakPlan).await
+}
+
 async fn request_user_input_round_trip_for_mode(mode: ModeKind) -> anyhow::Result<()> {
     skip_if_no_network!(Ok(()));
 

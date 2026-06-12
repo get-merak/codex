@@ -1,3 +1,4 @@
+pub const MERAK_PLAN: &str = include_str!("../templates/merak_plan.md");
 pub const PLAN: &str = include_str!("../templates/plan.md");
 pub const DEFAULT: &str = include_str!("../templates/default.md");
 pub const EXECUTE: &str = include_str!("../templates/execute.md");

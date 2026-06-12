@@ -2,6 +2,7 @@ pub(crate) mod cache;
 pub mod collaboration_mode_presets;
 pub(crate) mod config;
 pub mod manager;
+pub mod merak_plan_evals;
 pub mod model_info;
 pub mod model_presets;
 pub mod test_support;

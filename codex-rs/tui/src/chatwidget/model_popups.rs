@@ -242,7 +242,7 @@ impl ChatWidget {
         selected_effort: Option<ReasoningEffortConfig>,
     ) -> bool {
         if !self.collaboration_modes_enabled()
-            || self.active_mode_kind() != ModeKind::Plan
+            || !self.active_mode_kind().is_plan_like()
             || selected_model != self.current_model()
         {
             return false;
@@ -352,7 +352,7 @@ impl ChatWidget {
         let default_effort = preset.default_reasoning_effort;
         let supported = preset.supported_reasoning_efforts;
         let in_plan_mode =
-            self.collaboration_modes_enabled() && self.active_mode_kind() == ModeKind::Plan;
+            self.collaboration_modes_enabled() && self.active_mode_kind().is_plan_like();
 
         let warn_effort = if supported
             .iter()

@@ -77,7 +77,7 @@ impl GoalAccountingState {
             turn_id,
             GoalTurnAccounting::new(
                 token_usage_at_turn_start.clone(),
-                !matches!(collaboration_mode, ModeKind::Plan),
+                !collaboration_mode.is_plan_like(),
             ),
         );
     }

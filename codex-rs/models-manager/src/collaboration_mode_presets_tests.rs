@@ -3,8 +3,14 @@ use pretty_assertions::assert_eq;
 
 #[test]
 fn preset_names_use_mode_display_names() {
+    assert_eq!(merak_plan_preset().name, ModeKind::MerakPlan.display_name());
     assert_eq!(plan_preset().name, ModeKind::Plan.display_name());
     assert_eq!(default_preset().name, ModeKind::Default.display_name());
+    assert_eq!(merak_plan_preset().model, None);
+    assert_eq!(
+        merak_plan_preset().reasoning_effort,
+        Some(Some(ReasoningEffort::Medium))
+    );
     assert_eq!(plan_preset().model, None);
     assert_eq!(
         plan_preset().reasoning_effort,

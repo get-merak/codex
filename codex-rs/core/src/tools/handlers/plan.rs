@@ -6,7 +6,6 @@ use crate::tools::context::boxed_tool_output;
 use crate::tools::handlers::plan_spec::create_update_plan_tool;
 use crate::tools::registry::CoreToolRuntime;
 use crate::tools::registry::ToolExecutor;
-use codex_protocol::config_types::ModeKind;
 use codex_protocol::models::FunctionCallOutputPayload;
 use codex_protocol::models::ResponseInputItem;
 use codex_protocol::plan_tool::UpdatePlanArgs;
@@ -81,7 +80,7 @@ impl PlanHandler {
             }
         };
 
-        if turn.collaboration_mode.mode == ModeKind::Plan {
+        if turn.collaboration_mode.mode.is_plan_like() {
             return Err(FunctionCallError::RespondToModel(
                 "update_plan is a TODO/checklist tool and is not allowed in Plan mode".to_string(),
             ));

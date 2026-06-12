@@ -1,0 +1,431 @@
+[
+  {
+    "confidence_gaps": [
+      "design primitive ownership",
+      "viewport evidence"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "existing design primitives",
+      "current viewport behavior"
+    ],
+    "evidence_artifacts": [
+      "screenshots"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "target user",
+      "primary workflow",
+      "visual evidence"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "ui-work",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "browser_qa",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "target user",
+      "primary workflow"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "schema owner",
+      "migration reversibility"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "schema owner",
+      "existing migration pattern"
+    ],
+    "evidence_artifacts": [
+      "pytest output"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "field contract",
+      "data lifecycle",
+      "compatibility risk"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "backend-work",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "targeted_tests",
+      "migration_cycle",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "field contract",
+      "compatibility risk"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "current deploy commit",
+      "cloud credential scope"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "current deploy commit",
+      "service health signal"
+    ],
+    "evidence_artifacts": [
+      "staging health check"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "staging blast radius",
+      "credential availability",
+      "rollback"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "infra-work",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "aws_staging",
+      "targeted_tests",
+      "github_checks",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "staging blast radius",
+      "rollback"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "canonical drag surface",
+      "test flake reproduction"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "canonical drag surface",
+      "existing test coverage"
+    ],
+    "evidence_artifacts": [
+      "playwright trace"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "failure symptom",
+      "reproduction path",
+      "success threshold"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "repo-discovery",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "browser_qa",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "failure symptom",
+      "success threshold"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "reference behavior",
+      "quality rubric"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "current planning prompt",
+      "existing eval coverage"
+    ],
+    "evidence_artifacts": [
+      "eval report"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "target behavior",
+      "comparison baseline",
+      "acceptance proof"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "ambiguous-goal",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "comparison baseline",
+      "acceptance proof"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "credential availability",
+      "production authority"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "available deploy status source",
+      "credential availability"
+    ],
+    "evidence_artifacts": [
+      "deployment status"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "environment target",
+      "credential path",
+      "approval boundary"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "missing-credentials",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "github_checks",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "environment target",
+      "approval boundary"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "destructive scope",
+      "repeatable reseed path"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "destructive scope",
+      "reseed path"
+    ],
+    "evidence_artifacts": [
+      "dry-run deletion report"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "data boundary",
+      "backup requirement",
+      "demo seed source"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "risky-destructive-action",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ask_before_destructive_action",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "data boundary",
+      "backup requirement"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "baseline measurement",
+      "counter-metric owner"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "baseline measurement",
+      "current hot path"
+    ],
+    "evidence_artifacts": [
+      "benchmark output"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "measured workflow",
+      "latency target",
+      "regression limit"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "unclear-success-metrics",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "latency target",
+      "regression limit"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "library version",
+      "browser reproduction"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "library version",
+      "browser reproduction"
+    ],
+    "evidence_artifacts": [
+      "doc citation and screenshot"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "library name",
+      "installed version",
+      "browser symptom"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "tool-choice-ambiguity",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "context7_docs",
+      "browser_qa",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "library name",
+      "browser symptom"
+    ]
+  },
+  {
+    "confidence_gaps": [
+      "recording tool availability",
+      "scenario coverage"
+    ],
+    "counter_metric": "bounded regression counter-metric",
+    "discoverable_unknowns": [
+      "recording tool availability",
+      "modal cleanup path"
+    ],
+    "evidence_artifacts": [
+      "terminal mp4"
+    ],
+    "planning_summary": "summary reviewed before implementation",
+    "question_topics": [
+      "demo scenarios",
+      "artifact format",
+      "runtime budget"
+    ],
+    "residual_risks": [
+      "remaining uncertainty after verification"
+    ],
+    "scenario_id": "demo-generation",
+    "scope_in": [
+      "requested behavior"
+    ],
+    "scope_out": [
+      "unrelated redesign"
+    ],
+    "success_metric": "measurable success metric",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "modal_sandbox",
+      "spend_report",
+      "stop_remote_work",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "demo scenarios",
+      "runtime budget"
+    ]
+  }
+]

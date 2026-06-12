@@ -1,0 +1,80 @@
+{
+  "results": [
+    {
+      "category": "UI work",
+      "findings": [],
+      "passed": true,
+      "prompt": "Improve an existing dashboard so dense operational data is easier to scan.",
+      "scenario_id": "ui-work"
+    },
+    {
+      "category": "Backend work",
+      "findings": [],
+      "passed": true,
+      "prompt": "Add a new API field that is persisted and returned by task execution endpoints.",
+      "scenario_id": "backend-work"
+    },
+    {
+      "category": "Infra work",
+      "findings": [],
+      "passed": true,
+      "prompt": "Diagnose why staging remote dev sessions sometimes fail to boot.",
+      "scenario_id": "infra-work"
+    },
+    {
+      "category": "Repo discovery",
+      "findings": [],
+      "passed": true,
+      "prompt": "Find where notes drag-and-drop is implemented and plan a fix for flaky drops.",
+      "scenario_id": "repo-discovery"
+    },
+    {
+      "category": "Ambiguous goals",
+      "findings": [],
+      "passed": true,
+      "prompt": "Make planning feel Claude Code level.",
+      "scenario_id": "ambiguous-goal"
+    },
+    {
+      "category": "Missing credentials",
+      "findings": [],
+      "passed": true,
+      "prompt": "Verify the production deploy succeeded and fix it if not.",
+      "scenario_id": "missing-credentials"
+    },
+    {
+      "category": "Risky destructive actions",
+      "findings": [],
+      "passed": true,
+      "prompt": "Clean up stale staging data so the next demo starts fresh.",
+      "scenario_id": "risky-destructive-action"
+    },
+    {
+      "category": "Unclear success metrics",
+      "findings": [],
+      "passed": true,
+      "prompt": "Make task review faster.",
+      "scenario_id": "unclear-success-metrics"
+    },
+    {
+      "category": "Tool-choice ambiguity",
+      "findings": [],
+      "passed": true,
+      "prompt": "Figure out the right docs and browser tooling for a flaky UI library issue.",
+      "scenario_id": "tool-choice-ambiguity"
+    },
+    {
+      "category": "Demo generation",
+      "findings": [],
+      "passed": true,
+      "prompt": "Record a terminal MP4 showing three planning scenarios end-to-end.",
+      "scenario_id": "demo-generation"
+    }
+  ],
+  "summary": {
+    "failed": 0,
+    "max_decision_changing_questions": 3,
+    "passed": 10,
+    "total": 10
+  }
+}

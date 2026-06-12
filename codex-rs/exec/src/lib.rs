@@ -82,9 +82,13 @@ use codex_otel::traceparent_context_from_env;
 use codex_protocol::SessionId;
 use codex_protocol::ThreadId;
 use codex_protocol::config_types::ApprovalsReviewer;
+use codex_protocol::config_types::CollaborationMode;
+use codex_protocol::config_types::ModeKind;
 use codex_protocol::config_types::SandboxMode;
+use codex_protocol::config_types::Settings;
 use codex_protocol::models::ActivePermissionProfile;
 use codex_protocol::models::PermissionProfile;
+use codex_protocol::openai_models::ReasoningEffort;
 use codex_protocol::protocol::AskForApproval;
 use codex_protocol::protocol::ReviewRequest;
 use codex_protocol::protocol::ReviewTarget;
@@ -207,6 +211,7 @@ struct ExecRunArgs {
     images: Vec<PathBuf>,
     json_mode: bool,
     last_message_file: Option<PathBuf>,
+    merak_plan_mode: bool,
     model_provider: Option<String>,
     oss: bool,
     output_schema_path: Option<PathBuf>,
@@ -232,6 +237,19 @@ fn exec_stderr_env_filter() -> EnvFilter {
         .unwrap_or_else(|_| EnvFilter::new("error"))
 }
 
+fn merak_plan_collaboration_mode(model: &str) -> CollaborationMode {
+    CollaborationMode {
+        mode: ModeKind::MerakPlan,
+        settings: Settings {
+            model: model.to_string(),
+            reasoning_effort: Some(ReasoningEffort::Medium),
+            developer_instructions: Some(
+                codex_collaboration_mode_templates::MERAK_PLAN.to_string(),
+            ),
+        },
+    }
+}
+
 pub async fn run_main(cli: Cli, arg0_paths: Arg0DispatchPaths) -> anyhow::Result<()> {
     #[allow(clippy::print_stderr)]
     if let Some(message) = cli.removed_full_auto_warning() {
@@ -248,6 +266,7 @@ pub async fn run_main(cli: Cli, arg0_paths: Arg0DispatchPaths) -> anyhow::Result
         shared,
         skip_git_repo_check,
         ephemeral,
+        merak_plan_mode,
         ignore_user_config,
         ignore_rules,
         removed_full_auto,
@@ -562,6 +581,7 @@ pub async fn run_main(cli: Cli, arg0_paths: Arg0DispatchPaths) -> anyhow::Result
         images,
         json_mode,
         last_message_file,
+        merak_plan_mode,
         model_provider,
         oss,
         output_schema_path,
@@ -659,6 +679,7 @@ async fn run_exec_session(args: ExecRunArgs) -> anyhow::Result<()> {
         images,
         json_mode,
         last_message_file,
+        merak_plan_mode,
         model_provider,
         oss,
         output_schema_path,
@@ -883,7 +904,8 @@ async fn run_exec_session(args: ExecRunArgs) -> anyhow::Result<()> {
                         summary: None,
                         personality: None,
                         output_schema,
-                        collaboration_mode: None,
+                        collaboration_mode: merak_plan_mode
+                            .then(|| merak_plan_collaboration_mode(&session_configured.model)),
                     },
                 },
                 "turn/start",

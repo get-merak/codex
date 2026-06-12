@@ -210,7 +210,7 @@ impl ChatWidget {
         if self.has_queued_follow_up_messages() {
             return;
         }
-        if self.active_mode_kind() != ModeKind::Plan {
+        if !self.active_mode_kind().is_plan_like() {
             return;
         }
         if !self.transcript.saw_plan_item_this_turn {

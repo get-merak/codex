@@ -1,0 +1,13 @@
+---
+source: tui/src/bottom_pane/request_user_input/mod.rs
+expression: "render_snapshot(&overlay, area)"
+---
+                                                                                                                        
+  Question 1/1 (1 unanswered)                                                                                           
+  Choose the planning depth.                                                                                            
+                                                                                                                        
+  › 1. Focused interview  Recommended  Ask only the product decisions that materially change the plan.                  
+    2. Skip questions                  Proceed with assumptions and record them in the plan.                            
+    3. Exhaustive interview            Ask every plausible implementation and edge-case question.                       
+                                                                                                                        
+  tab to add notes | enter to submit answer | esc to interrupt

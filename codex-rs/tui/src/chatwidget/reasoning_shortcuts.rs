@@ -12,7 +12,6 @@
 //! advertised effort when the default is absent, before stepping through the
 //! advertised order.
 
-use codex_protocol::config_types::ModeKind;
 use codex_protocol::openai_models::ModelPreset;
 use codex_protocol::openai_models::ReasoningEffort as ReasoningEffortConfig;
 use crossterm::event::KeyEvent;
@@ -109,7 +108,7 @@ impl ChatWidget {
             return true;
         };
 
-        if self.collaboration_modes_enabled() && self.active_mode_kind() == ModeKind::Plan {
+        if self.collaboration_modes_enabled() && self.active_mode_kind().is_plan_like() {
             self.app_event_tx
                 .send(AppEvent::UpdatePlanModeReasoningEffort(Some(next_effort)));
         } else {

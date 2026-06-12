@@ -95,8 +95,18 @@ async fn plan_mode_nudge_shift_tab_uses_existing_mode_cycle_path() {
 
     chat.handle_key_event(KeyEvent::from(KeyCode::BackTab));
     chat.pre_draw_tick();
+    assert_eq!(chat.active_collaboration_mode_kind(), ModeKind::MerakPlan);
+    assert!(!chat.bottom_pane.plan_mode_nudge_visible());
+
+    chat.handle_key_event(KeyEvent::from(KeyCode::BackTab));
+    chat.pre_draw_tick();
     assert_eq!(chat.active_collaboration_mode_kind(), ModeKind::Plan);
     assert!(!chat.bottom_pane.plan_mode_nudge_visible());
+
+    chat.handle_key_event(KeyEvent::from(KeyCode::BackTab));
+    chat.pre_draw_tick();
+    assert_eq!(chat.active_collaboration_mode_kind(), ModeKind::Default);
+    assert!(chat.bottom_pane.plan_mode_nudge_visible());
 }
 
 #[tokio::test]

@@ -109,6 +109,10 @@ fn request_user_input_unavailable_messages_respect_default_mode_feature_flag() {
         None
     );
     assert_eq!(
+        request_user_input_unavailable_message(ModeKind::MerakPlan, &default_available_modes()),
+        None
+    );
+    assert_eq!(
         request_user_input_unavailable_message(ModeKind::Default, &default_available_modes()),
         Some("request_user_input is unavailable in Default mode".to_string())
     );
@@ -136,10 +140,10 @@ fn request_user_input_unavailable_messages_respect_default_mode_feature_flag() {
 fn request_user_input_tool_description_mentions_available_modes() {
     assert_eq!(
         request_user_input_tool_description(&default_available_modes()),
-        "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.".to_string()
+        "Request user input for one to three short questions and wait for the response. This tool is only available in Merak Plan or Plan mode.".to_string()
     );
     assert_eq!(
         request_user_input_tool_description(&default_mode_enabled_available_modes()),
-        "Request user input for one to three short questions and wait for the response. This tool is only available in Default or Plan mode.".to_string()
+        "Request user input for one to three short questions and wait for the response. This tool is only available in Default, Merak Plan or Plan modes.".to_string()
     );
 }

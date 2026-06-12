@@ -6,7 +6,6 @@ use crate::codex_thread::TryStartTurnIfIdleRejectionReason;
 use crate::state::ActiveTurn;
 use crate::state::TurnState;
 use crate::tasks::RegularTask;
-use codex_protocol::config_types::ModeKind;
 use codex_protocol::models::ResponseItem;
 use std::sync::Arc;
 
@@ -55,7 +54,7 @@ impl Session {
                 input,
             ));
         }
-        if self.collaboration_mode().await.mode == ModeKind::Plan {
+        if self.collaboration_mode().await.mode.is_plan_like() {
             return Err(TryStartTurnIfIdleError::new(
                 TryStartTurnIfIdleRejectionReason::PlanMode,
                 input,
@@ -86,7 +85,7 @@ impl Session {
         let turn_context = self
             .new_default_turn_with_sub_id(uuid::Uuid::new_v4().to_string())
             .await;
-        if turn_context.collaboration_mode.mode == ModeKind::Plan {
+        if turn_context.collaboration_mode.mode.is_plan_like() {
             self.clear_reserved_idle_turn(&turn_state).await;
             self.maybe_start_turn_for_pending_work().await;
             return Err(TryStartTurnIfIdleError::new(

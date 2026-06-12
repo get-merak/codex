@@ -1,0 +1,394 @@
+[
+  {
+    "adaptation_terms": [
+      "support leads",
+      "stale runs",
+      "desktop and mobile"
+    ],
+    "confidence_gaps": [
+      "design primitive ownership",
+      "viewport evidence"
+    ],
+    "counter_metric": "No table row, toolbar, or action text wraps or overlaps at mobile width.",
+    "discoverable_unknowns": [
+      "existing design primitives",
+      "current viewport behavior"
+    ],
+    "evidence_artifacts": [
+      "screenshots"
+    ],
+    "initial_prompt": "The task execution dashboard is noisy. Make it easier to scan without turning it into a marketing page.",
+    "plan_text": "Context: Support lead trying to clear stuck task executions before standup.\nTarget Product Contract: Support leads can identify stale or failed runs within 10 seconds in the screenshot review.\nScope In: dashboard density and hierarchy, existing design primitives, desktop and mobile screenshot evidence\nScope Out: new dashboard information architecture, decorative landing-page style redesign\nDecisions: target user=Support leads who triage failed and stale executions during daily ops.; primary workflow=Spot failed or stale runs, compare owner/status/age, then jump into the run.; visual evidence=Before/after screenshots at desktop and mobile widths plus one focused Playwright check.\nTool Guidance: read_repo_instructions, git_status, ripgrep, read_files, browser_qa, targeted_tests, no_mutation_in_plan_mode\nSuccess Metric: Support leads can identify stale or failed runs within 10 seconds in the screenshot review.\nCounter-Metric: No table row, toolbar, or action text wraps or overlaps at mobile width.\nEvidence Artifact: screenshots\nDiscoverable Unknowns: existing design primitives, current viewport behavior\nConfidence Gaps: design primitive ownership, viewport evidence\nPlanning Summary Review: Plan is approved around support-lead triage, screenshot proof, and no broad redesign.\nResidual Risks: live data volume may expose row states not present in fixture screenshots\nRecommended Order: discover local context, ask only these decision-changing questions, then implement behind the listed proof gates.",
+    "planning_summary": "Plan is approved around support-lead triage, screenshot proof, and no broad redesign.",
+    "question_topics": [
+      "target user",
+      "primary workflow",
+      "visual evidence"
+    ],
+    "question_type": "recommended choice",
+    "questions": [
+      {
+        "answer": "Support leads who triage failed and stale executions during daily ops.",
+        "prompt": "Who is the primary operator for the dense dashboard?",
+        "topic": "target user"
+      },
+      {
+        "answer": "Spot failed or stale runs, compare owner/status/age, then jump into the run.",
+        "prompt": "Which workflow should the first pass optimize?",
+        "topic": "primary workflow"
+      },
+      {
+        "answer": "Before/after screenshots at desktop and mobile widths plus one focused Playwright check.",
+        "prompt": "What proof should count before implementation starts?",
+        "topic": "visual evidence"
+      }
+    ],
+    "residual_risks": [
+      "live data volume may expose row states not present in fixture screenshots"
+    ],
+    "scenario_id": "ui-work",
+    "scope_in": [
+      "dashboard density and hierarchy",
+      "existing design primitives",
+      "desktop and mobile screenshot evidence"
+    ],
+    "scope_out": [
+      "new dashboard information architecture",
+      "decorative landing-page style redesign"
+    ],
+    "session_id": "sim-ui-ops-dashboard",
+    "simulated_user_answers": {
+      "primary workflow": "Spot failed or stale runs, compare owner/status/age, then jump into the run.",
+      "target user": "Support leads who triage failed and stale executions during daily ops.",
+      "visual evidence": "Before/after screenshots at desktop and mobile widths plus one focused Playwright check."
+    },
+    "success_metric": "Support leads can identify stale or failed runs within 10 seconds in the screenshot review.",
+    "title": "Ops dashboard triage",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "browser_qa",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "target user",
+      "primary workflow"
+    ],
+    "user_role": "Support lead trying to clear stuck task executions before standup."
+  },
+  {
+    "adaptation_terms": [
+      "review_status",
+      "nullable enum",
+      "existing rows"
+    ],
+    "confidence_gaps": [
+      "schema owner",
+      "migration reversibility"
+    ],
+    "counter_metric": "Existing task execution API tests stay green and the migration remains reversible.",
+    "discoverable_unknowns": [
+      "schema owner",
+      "existing migration pattern"
+    ],
+    "evidence_artifacts": [
+      "pytest output"
+    ],
+    "initial_prompt": "Add review status to task executions and make sure API clients can read it.",
+    "plan_text": "Context: Backend owner adding an API-visible task execution review field.\nTarget Product Contract: Task execution create/read/list endpoints return typed review_status for new and existing rows.\nScope In: data model column, schema response type, targeted API and service tests\nScope Out: task review UI, historical backfill beyond nullable default\nDecisions: field contract=Expose review_status as nullable enum pending, approved, rejected.; compatibility risk=No migration theater; existing rows can be null, but response schemas must type it explicitly.\nTool Guidance: read_repo_instructions, git_status, ripgrep, read_files, targeted_tests, migration_cycle, no_mutation_in_plan_mode\nSuccess Metric: Task execution create/read/list endpoints return typed review_status for new and existing rows.\nCounter-Metric: Existing task execution API tests stay green and the migration remains reversible.\nEvidence Artifact: pytest output\nDiscoverable Unknowns: schema owner, existing migration pattern\nConfidence Gaps: schema owner, migration reversibility\nPlanning Summary Review: Plan is approved around nullable enum review_status and reversible migration evidence.\nResidual Risks: hidden clients may rely on strict response snapshots outside this repository\nRecommended Order: discover local context, ask only these decision-changing questions, then implement behind the listed proof gates.",
+    "planning_summary": "Plan is approved around nullable enum review_status and reversible migration evidence.",
+    "question_topics": [
+      "field contract",
+      "compatibility risk"
+    ],
+    "question_type": "freeform answer",
+    "questions": [
+      {
+        "answer": "Expose review_status as nullable enum pending, approved, rejected.",
+        "prompt": "What exact external API contract should the new field expose?",
+        "topic": "field contract"
+      },
+      {
+        "answer": "No migration theater; existing rows can be null, but response schemas must type it explicitly.",
+        "prompt": "How much compatibility ceremony do you want for existing rows?",
+        "topic": "compatibility risk"
+      }
+    ],
+    "residual_risks": [
+      "hidden clients may rely on strict response snapshots outside this repository"
+    ],
+    "scenario_id": "backend-work",
+    "scope_in": [
+      "data model column",
+      "schema response type",
+      "targeted API and service tests"
+    ],
+    "scope_out": [
+      "task review UI",
+      "historical backfill beyond nullable default"
+    ],
+    "session_id": "sim-backend-review-status",
+    "simulated_user_answers": {
+      "compatibility risk": "No migration theater; existing rows can be null, but response schemas must type it explicitly.",
+      "field contract": "Expose review_status as nullable enum pending, approved, rejected."
+    },
+    "success_metric": "Task execution create/read/list endpoints return typed review_status for new and existing rows.",
+    "title": "Persisted review status field",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "read_files",
+      "targeted_tests",
+      "migration_cycle",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "field contract",
+      "compatibility risk"
+    ],
+    "user_role": "Backend owner adding an API-visible task execution review field."
+  },
+  {
+    "adaptation_terms": [
+      "staging remote-dev",
+      "AWS staging admin",
+      "task definition"
+    ],
+    "confidence_gaps": [
+      "current deploy commit",
+      "cloud credential scope"
+    ],
+    "counter_metric": "No unrelated staging service is restarted or redeployed during diagnosis.",
+    "discoverable_unknowns": [
+      "current deploy commit",
+      "service health signal"
+    ],
+    "evidence_artifacts": [
+      "staging health check"
+    ],
+    "initial_prompt": "Remote dev sessions in staging randomly do not boot. Figure out what is wrong.",
+    "plan_text": "Context: Infra engineer debugging intermittent staging remote-dev session boot failures.\nTarget Product Contract: A staging health check shows remote-dev boot succeeds on the deployed commit after the fix.\nScope In: remote-dev boot path, staging health signal, GitHub and AWS evidence\nScope Out: production deploys, unrelated ECS services, broad infra refactors\nDecisions: staging blast radius=Only staging remote-dev session startup; do not alter unrelated Temporal or API services.; credential availability=Yes, AWS staging admin is available, but every cloud read/write should be explicit.; rollback=Capture current deploy commit and task definition before proposing any rollout.\nTool Guidance: read_repo_instructions, git_status, ripgrep, aws_staging, targeted_tests, github_checks, no_mutation_in_plan_mode\nSuccess Metric: A staging health check shows remote-dev boot succeeds on the deployed commit after the fix.\nCounter-Metric: No unrelated staging service is restarted or redeployed during diagnosis.\nEvidence Artifact: staging health check\nDiscoverable Unknowns: current deploy commit, service health signal\nConfidence Gaps: current deploy commit, cloud credential scope\nPlanning Summary Review: Plan is approved for staging-only diagnosis with captured rollback evidence before changes.\nResidual Risks: intermittent failures may require repeated boot attempts to prove absence of flake\nRecommended Order: discover local context, ask only these decision-changing questions, then implement behind the listed proof gates.",
+    "planning_summary": "Plan is approved for staging-only diagnosis with captured rollback evidence before changes.",
+    "question_topics": [
+      "staging blast radius",
+      "credential availability",
+      "rollback"
+    ],
+    "question_type": "multi-question flow",
+    "questions": [
+      {
+        "answer": "Only staging remote-dev session startup; do not alter unrelated Temporal or API services.",
+        "prompt": "What staging surface can this investigation touch?",
+        "topic": "staging blast radius"
+      },
+      {
+        "answer": "Yes, AWS staging admin is available, but every cloud read/write should be explicit.",
+        "prompt": "Do you have cloud credentials available for direct checks?",
+        "topic": "credential availability"
+      },
+      {
+        "answer": "Capture current deploy commit and task definition before proposing any rollout.",
+        "prompt": "What rollback proof should be part of the plan?",
+        "topic": "rollback"
+      }
+    ],
+    "residual_risks": [
+      "intermittent failures may require repeated boot attempts to prove absence of flake"
+    ],
+    "scenario_id": "infra-work",
+    "scope_in": [
+      "remote-dev boot path",
+      "staging health signal",
+      "GitHub and AWS evidence"
+    ],
+    "scope_out": [
+      "production deploys",
+      "unrelated ECS services",
+      "broad infra refactors"
+    ],
+    "session_id": "sim-infra-remote-dev",
+    "simulated_user_answers": {
+      "credential availability": "Yes, AWS staging admin is available, but every cloud read/write should be explicit.",
+      "rollback": "Capture current deploy commit and task definition before proposing any rollout.",
+      "staging blast radius": "Only staging remote-dev session startup; do not alter unrelated Temporal or API services."
+    },
+    "success_metric": "A staging health check shows remote-dev boot succeeds on the deployed commit after the fix.",
+    "title": "Staging remote dev boot failure",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ripgrep",
+      "aws_staging",
+      "targeted_tests",
+      "github_checks",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "staging blast radius",
+      "rollback"
+    ],
+    "user_role": "Infra engineer debugging intermittent staging remote-dev session boot failures."
+  },
+  {
+    "adaptation_terms": [
+      "demo company",
+      "dry-run deletion",
+      "seed script"
+    ],
+    "confidence_gaps": [
+      "destructive scope",
+      "repeatable reseed path"
+    ],
+    "counter_metric": "Shared seed users and non-demo companies remain untouched after reseed verification.",
+    "discoverable_unknowns": [
+      "destructive scope",
+      "reseed path"
+    ],
+    "evidence_artifacts": [
+      "dry-run deletion report"
+    ],
+    "initial_prompt": "Clean staging data so tomorrow's demo starts fresh.",
+    "plan_text": "Context: Product engineer preparing a clean staging demo while avoiding accidental data loss.\nTarget Product Contract: Dry-run report matches the approved demo-company boundary before any delete runs.\nScope In: dry-run deletion report, approval gate, idempotent reseed verification\nScope Out: production data, shared seed users, manual SQL delete without preview\nDecisions: data boundary=Only the staging demo company and its generated task executions; never shared seed users.; backup requirement=Produce a dry-run deletion report and export IDs before requesting approval.; demo seed source=Use the existing idempotent demo seed script and verify counts after reseed.\nTool Guidance: read_repo_instructions, git_status, ask_before_destructive_action, targeted_tests, no_mutation_in_plan_mode\nSuccess Metric: Dry-run report matches the approved demo-company boundary before any delete runs.\nCounter-Metric: Shared seed users and non-demo companies remain untouched after reseed verification.\nEvidence Artifact: dry-run deletion report\nDiscoverable Unknowns: destructive scope, reseed path\nConfidence Gaps: destructive scope, repeatable reseed path\nPlanning Summary Review: Plan is approved only up to dry-run evidence; destructive execution requires a separate approval.\nResidual Risks: demo-company ownership may be mislabeled if seed metadata is stale\nRecommended Order: discover local context, ask only these decision-changing questions, then implement behind the listed proof gates.",
+    "planning_summary": "Plan is approved only up to dry-run evidence; destructive execution requires a separate approval.",
+    "question_topics": [
+      "data boundary",
+      "backup requirement",
+      "demo seed source"
+    ],
+    "question_type": "recommended destructive boundary",
+    "questions": [
+      {
+        "answer": "Only the staging demo company and its generated task executions; never shared seed users.",
+        "prompt": "What data boundary is allowed for cleanup?",
+        "topic": "data boundary"
+      },
+      {
+        "answer": "Produce a dry-run deletion report and export IDs before requesting approval.",
+        "prompt": "What proof is required before any destructive command?",
+        "topic": "backup requirement"
+      },
+      {
+        "answer": "Use the existing idempotent demo seed script and verify counts after reseed.",
+        "prompt": "How should the demo data be recreated?",
+        "topic": "demo seed source"
+      }
+    ],
+    "residual_risks": [
+      "demo-company ownership may be mislabeled if seed metadata is stale"
+    ],
+    "scenario_id": "risky-destructive-action",
+    "scope_in": [
+      "dry-run deletion report",
+      "approval gate",
+      "idempotent reseed verification"
+    ],
+    "scope_out": [
+      "production data",
+      "shared seed users",
+      "manual SQL delete without preview"
+    ],
+    "session_id": "sim-risky-demo-data-cleanup",
+    "simulated_user_answers": {
+      "backup requirement": "Produce a dry-run deletion report and export IDs before requesting approval.",
+      "data boundary": "Only the staging demo company and its generated task executions; never shared seed users.",
+      "demo seed source": "Use the existing idempotent demo seed script and verify counts after reseed."
+    },
+    "success_metric": "Dry-run report matches the approved demo-company boundary before any delete runs.",
+    "title": "Staging demo data cleanup",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "ask_before_destructive_action",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "data boundary",
+      "backup requirement"
+    ],
+    "user_role": "Product engineer preparing a clean staging demo while avoiding accidental data loss."
+  },
+  {
+    "adaptation_terms": [
+      "Radix Select",
+      "version-matched docs",
+      "Safari"
+    ],
+    "confidence_gaps": [
+      "library version",
+      "browser reproduction"
+    ],
+    "counter_metric": "Chromium behavior remains unchanged in the same Playwright scenario.",
+    "discoverable_unknowns": [
+      "library version",
+      "browser reproduction"
+    ],
+    "evidence_artifacts": [
+      "doc citation and screenshot"
+    ],
+    "initial_prompt": "The new dropdown sometimes closes immediately in Safari. Figure out whether we need docs, browser testing, or both.",
+    "plan_text": "Context: Frontend engineer debugging a browser-specific select dropdown issue.\nTarget Product Contract: Safari reproduction is captured and the fix cites version-matched Radix Select docs.\nScope In: package version discovery, Context7 docs, Safari and Chromium browser QA\nScope Out: rewriting the design system select primitive without reproduction, AWS or staging checks\nDecisions: library name=It is Radix Select via @radix-ui/react-select.; installed version=Yes, inspect package files first and only then fetch version-matched docs.; browser symptom=Safari closes the select right after open when the trigger is inside a modal.\nTool Guidance: read_repo_instructions, git_status, context7_docs, browser_qa, targeted_tests, no_mutation_in_plan_mode\nSuccess Metric: Safari reproduction is captured and the fix cites version-matched Radix Select docs.\nCounter-Metric: Chromium behavior remains unchanged in the same Playwright scenario.\nEvidence Artifact: doc citation and screenshot\nDiscoverable Unknowns: library version, browser reproduction\nConfidence Gaps: library version, browser reproduction\nPlanning Summary Review: Plan is approved around package discovery first, then docs plus browser reproduction.\nResidual Risks: Safari automation may not perfectly match a manual WebKit session\nRecommended Order: discover local context, ask only these decision-changing questions, then implement behind the listed proof gates.",
+    "planning_summary": "Plan is approved around package discovery first, then docs plus browser reproduction.",
+    "question_topics": [
+      "library name",
+      "installed version",
+      "browser symptom"
+    ],
+    "question_type": "multi-question flow",
+    "questions": [
+      {
+        "answer": "It is Radix Select via @radix-ui/react-select.",
+        "prompt": "Which UI library owns the dropdown behavior?",
+        "topic": "library name"
+      },
+      {
+        "answer": "Yes, inspect package files first and only then fetch version-matched docs.",
+        "prompt": "Should the plan discover the installed version before reading docs?",
+        "topic": "installed version"
+      },
+      {
+        "answer": "Safari closes the select right after open when the trigger is inside a modal.",
+        "prompt": "What browser behavior should be reproduced?",
+        "topic": "browser symptom"
+      }
+    ],
+    "residual_risks": [
+      "Safari automation may not perfectly match a manual WebKit session"
+    ],
+    "scenario_id": "tool-choice-ambiguity",
+    "scope_in": [
+      "package version discovery",
+      "Context7 docs",
+      "Safari and Chromium browser QA"
+    ],
+    "scope_out": [
+      "rewriting the design system select primitive without reproduction",
+      "AWS or staging checks"
+    ],
+    "session_id": "sim-radix-safari-tooling",
+    "simulated_user_answers": {
+      "browser symptom": "Safari closes the select right after open when the trigger is inside a modal.",
+      "installed version": "Yes, inspect package files first and only then fetch version-matched docs.",
+      "library name": "It is Radix Select via @radix-ui/react-select."
+    },
+    "success_metric": "Safari reproduction is captured and the fix cites version-matched Radix Select docs.",
+    "title": "Flaky UI library issue",
+    "tool_guidance": [
+      "read_repo_instructions",
+      "git_status",
+      "context7_docs",
+      "browser_qa",
+      "targeted_tests",
+      "no_mutation_in_plan_mode"
+    ],
+    "user_decisions": [
+      "library name",
+      "browser symptom"
+    ],
+    "user_role": "Frontend engineer debugging a browser-specific select dropdown issue."
+  }
+]

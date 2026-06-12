@@ -55,6 +55,7 @@ pub(super) const TIP_SEPARATOR: &str = " | ";
 pub(super) const DESIRED_SPACERS_BETWEEN_SECTIONS: u16 = 2;
 const OTHER_OPTION_LABEL: &str = "None of the above";
 const OTHER_OPTION_DESCRIPTION: &str = "Optionally, add details in notes (tab).";
+const RECOMMENDED_OPTION_SUFFIX: &str = " (Recommended)";
 const UNANSWERED_CONFIRM_TITLE: &str = "Submit with unanswered questions?";
 const UNANSWERED_CONFIRM_GO_BACK: &str = "Go back";
 const UNANSWERED_CONFIRM_GO_BACK_DESC: &str = "Return to the first unanswered question.";
@@ -322,7 +323,7 @@ impl RequestUserInputOverlay {
                     .map(|(idx, opt)| {
                         let selected = selected_idx.is_some_and(|sel| sel == idx);
                         let prefix = if selected { '›' } else { ' ' };
-                        let label = opt.label.as_str();
+                        let label = Self::display_option_label(&opt.label);
                         let number = idx + 1;
                         let prefix_label = format!("{prefix} {number}. ");
                         let wrap_indent = UnicodeWidthStr::width(prefix_label.as_str());
@@ -666,6 +667,13 @@ impl RequestUserInputOverlay {
             return Some(OTHER_OPTION_LABEL.to_string());
         }
         None
+    }
+
+    fn display_option_label(label: &str) -> String {
+        label
+            .strip_suffix(RECOMMENDED_OPTION_SUFFIX)
+            .map(|label| format!("{label}  Recommended"))
+            .unwrap_or_else(|| label.to_string())
     }
 
     /// Move to the next/previous question, wrapping in either direction.
@@ -1462,6 +1470,33 @@ mod tests {
                     description:
                         "Summarize the changes and highlight the most important risks and gaps."
                             .to_string(),
+                },
+            ]),
+        }
+    }
+
+    fn question_with_recommended_option(id: &str, header: &str) -> ToolRequestUserInputQuestion {
+        ToolRequestUserInputQuestion {
+            id: id.to_string(),
+            header: header.to_string(),
+            question: "Choose the planning depth.".to_string(),
+            is_other: false,
+            is_secret: false,
+            options: Some(vec![
+                ToolRequestUserInputOption {
+                    label: "Focused interview (Recommended)".to_string(),
+                    description: "Ask only the product decisions that materially change the plan."
+                        .to_string(),
+                },
+                ToolRequestUserInputOption {
+                    label: "Skip questions".to_string(),
+                    description: "Proceed with assumptions and record them in the plan."
+                        .to_string(),
+                },
+                ToolRequestUserInputOption {
+                    label: "Exhaustive interview".to_string(),
+                    description: "Ask every plausible implementation and edge-case question."
+                        .to_string(),
                 },
             ]),
         }
@@ -2832,6 +2867,68 @@ mod tests {
         let area = Rect::new(0, 0, 120, 16);
         insta::assert_snapshot!(
             "request_user_input_options",
+            render_snapshot(&overlay, area)
+        );
+    }
+
+    #[test]
+    fn request_user_input_recommended_option_snapshot() {
+        let (tx, _rx) = test_sender();
+        let overlay = RequestUserInputOverlay::new(
+            request_event(
+                "turn-1",
+                vec![question_with_recommended_option("q1", "Depth")],
+            ),
+            tx,
+            /*has_input_focus*/ true,
+            /*enhanced_keys_supported*/ false,
+            /*disable_paste_burst*/ false,
+        );
+        let area = Rect::new(0, 0, 120, 16);
+        insta::assert_snapshot!(
+            "request_user_input_recommended_option",
+            render_snapshot(&overlay, area)
+        );
+    }
+
+    #[test]
+    fn request_user_input_planning_summary_review_snapshot() {
+        let (tx, _rx) = test_sender();
+        let overlay = RequestUserInputOverlay::new(
+            request_event(
+                "turn-1",
+                vec![ToolRequestUserInputQuestion {
+                    id: "q1".to_string(),
+                    header: "Plan Review".to_string(),
+                    question:
+                        "Review the planning summary before implementation: scope is bounded, evidence is screenshots plus targeted tests, and unresolved gaps are viewport evidence and ownership."
+                            .to_string(),
+                    is_other: false,
+                    is_secret: false,
+                    options: Some(vec![
+                        ToolRequestUserInputOption {
+                            label: "Approve plan (Recommended)".to_string(),
+                            description: "Proceed with this plan and keep the listed proof gates.".to_string(),
+                        },
+                        ToolRequestUserInputOption {
+                            label: "Revise scope".to_string(),
+                            description: "Change what is in or out before implementation.".to_string(),
+                        },
+                        ToolRequestUserInputOption {
+                            label: "Add risk or evidence".to_string(),
+                            description: "Require another confidence gap, counter-metric, or artifact.".to_string(),
+                        },
+                    ]),
+                }],
+            ),
+            tx,
+            /*has_input_focus*/ true,
+            /*enhanced_keys_supported*/ false,
+            /*disable_paste_burst*/ false,
+        );
+        let area = Rect::new(0, 0, 120, 13);
+        insta::assert_snapshot!(
+            "request_user_input_planning_summary_review",
             render_snapshot(&overlay, area)
         );
     }

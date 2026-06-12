@@ -131,7 +131,12 @@ fn format_allowed_modes(available_modes: &[ModeKind]) -> String {
         [] => "no modes".to_string(),
         [mode] => format!("{mode} mode"),
         [first, second] => format!("{first} or {second} mode"),
-        [..] => format!("modes: {}", mode_names.join(",")),
+        [..] => {
+            let (last, rest) = mode_names
+                .split_last()
+                .expect("slice with at least three items has a last item");
+            format!("{} or {last} modes", rest.join(", "))
+        }
     }
 }
 

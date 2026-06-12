@@ -1,0 +1,120 @@
+{
+  "items": [
+    {
+      "evidence": [
+        "codex-rs/protocol/src/config_types.rs",
+        "codex-rs/tui/src/chatwidget/settings.rs",
+        "codex-rs/tui/src/bottom_pane/chat_composer.rs",
+        "codex-rs/tui/src/chatwidget/tests/plan_mode.rs"
+      ],
+      "id": "tui-plan-mode",
+      "notes": [],
+      "passed": true,
+      "requirement": "First Shift+Tab enters Merak Plan mode, second enters traditional Plan mode, and the default nudge returns after cycling."
+    },
+    {
+      "evidence": [
+        "codex-rs/tui/src/bottom_pane/request_user_input/mod.rs",
+        "codex-rs/tui/src/bottom_pane/request_user_input/snapshots/codex_tui__bottom_pane__request_user_input__tests__request_user_input_recommended_option.snap",
+        "codex-rs/tui/src/bottom_pane/request_user_input/snapshots/codex_tui__bottom_pane__request_user_input__tests__request_user_input_planning_summary_review.snap",
+        "scripts/merak_plan_demo_eval.py"
+      ],
+      "id": "request-user-input-ui",
+      "notes": [],
+      "passed": true,
+      "requirement": "TUI supports recommended choices, freeform answers, multi-question flows, unknown tracking, and planning-summary review."
+    },
+    {
+      "evidence": [
+        "codex-rs/collaboration-mode-templates/templates/merak_plan.md"
+      ],
+      "id": "agent-behavior-template",
+      "notes": [],
+      "passed": true,
+      "requirement": "Agent behavior asks only decision-changing questions before planning."
+    },
+    {
+      "evidence": [
+        "scripts/merak_plan_eval_report.py",
+        "artifacts/merak-plan-eval/merak-plan-eval-report.json"
+      ],
+      "id": "golden-scenario-evals",
+      "notes": [],
+      "passed": true,
+      "requirement": "Eval harness covers and passes the 10 named golden planning scenarios."
+    },
+    {
+      "evidence": [
+        "artifacts/merak-plan-eval/merak-plan-reference-submissions.json"
+      ],
+      "id": "question-bound",
+      "notes": [],
+      "passed": true,
+      "requirement": "No scenario asks more than three decision-changing questions."
+    },
+    {
+      "evidence": [
+        "artifacts/merak-plan-eval/merak-plan-reference-submissions.json"
+      ],
+      "id": "required-plan-fields",
+      "notes": [],
+      "passed": true,
+      "requirement": "Every plan includes success metric, counter-metric, evidence artifact, scope in/out, and residual risks."
+    },
+    {
+      "evidence": [
+        "scripts/merak_plan_eval_report.py",
+        "artifacts/merak-plan-eval/merak-plan-eval-report.json"
+      ],
+      "id": "tool-selection",
+      "notes": [],
+      "passed": true,
+      "requirement": "Tool selection is correct in all scenarios according to repo routing rules."
+    },
+    {
+      "evidence": [
+        "artifacts/merak-plan-demo/merak-plan-demo.mp4",
+        "artifacts/merak-plan-demo/merak-plan-demo.txt",
+        "artifacts/merak-plan-demo/merak-plan-demo-eval-report.json"
+      ],
+      "id": "terminal-mp4-demo",
+      "notes": [],
+      "passed": true,
+      "requirement": "Terminal MP4 demo shows at least three scenarios end-to-end, including user choice types and Codex adapting the plan."
+    },
+    {
+      "evidence": [
+        "scripts/merak_plan_user_sim.py",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim-report.md",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim.txt",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim.mp4"
+      ],
+      "id": "five-user-simulations",
+      "notes": [],
+      "passed": true,
+      "requirement": "Five realistic simulated-user sessions each score 10/10 and show actual user answers changing the resulting plan."
+    },
+    {
+      "evidence": [
+        "<external>/codex-merak-plan-summary-review-tui-rerun-post.json"
+      ],
+      "id": "modal-cleanup-spend",
+      "notes": [],
+      "passed": true,
+      "requirement": "Modal/container work is stopped after runs and spend is reported."
+    }
+  ],
+  "modal_spend": {
+    "active_container_count": 0,
+    "billing_exit_code": 0,
+    "recorded_at": "2026-06-12T03:15:35.049719+00:00",
+    "reported_cost_usd": "0.91328880",
+    "snapshot_path": "<external>/codex-merak-plan-summary-review-tui-rerun-post.json",
+    "snapshot_readable": true
+  },
+  "summary": {
+    "failed": 0,
+    "passed": 10,
+    "total": 10
+  }
+}

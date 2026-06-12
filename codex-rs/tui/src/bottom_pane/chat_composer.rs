@@ -416,7 +416,7 @@ fn plan_mode_nudge_line() -> Line<'static> {
         "Create a plan?".magenta(),
         "  ".into(),
         key_hint::shift(KeyCode::Tab).into(),
-        " use Plan mode".into(),
+        " use Merak plan mode".into(),
         "   ".into(),
         key_hint::plain(KeyCode::Esc).into(),
         " dismiss".into(),

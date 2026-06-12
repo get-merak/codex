@@ -68,6 +68,9 @@ def build_report(modal_spend_file: Path | None) -> dict[str, Any]:
         REPO_ROOT / "artifacts/merak-plan-demo/merak-plan-demo-eval-report.json"
     )
     demo_transcript = read_text(REPO_ROOT / "artifacts/merak-plan-demo/merak-plan-demo.txt")
+    user_sim_report = read_json(
+        REPO_ROOT / "artifacts/merak-plan-user-sim/merak-plan-user-sim-report.json"
+    )
     modal_snapshot = read_json(modal_spend_file) if modal_spend_file else None
 
     items = [
@@ -79,6 +82,7 @@ def build_report(modal_spend_file: Path | None) -> dict[str, Any]:
         audit_required_plan_fields(reference_submissions),
         audit_tool_selection(eval_report),
         audit_demo_artifact(demo_eval_report, demo_transcript),
+        audit_user_simulation(user_sim_report),
         audit_modal_cleanup_and_spend(modal_spend_file, modal_snapshot),
     ]
 
@@ -293,6 +297,39 @@ def audit_demo_artifact(demo_eval_report: Any, demo_transcript: str) -> AuditIte
             path_label(mp4_path),
             path_label(REPO_ROOT / "artifacts/merak-plan-demo/merak-plan-demo.txt"),
             path_label(REPO_ROOT / "artifacts/merak-plan-demo/merak-plan-demo-eval-report.json"),
+        ),
+        notes=failed_checks(checks),
+    )
+
+
+def audit_user_simulation(user_sim_report: Any) -> AuditItem:
+    mp4_path = REPO_ROOT / "artifacts/merak-plan-user-sim/merak-plan-user-sim.mp4"
+    transcript_path = REPO_ROOT / "artifacts/merak-plan-user-sim/merak-plan-user-sim.txt"
+    summary = user_sim_report.get("summary", {})
+    results = user_sim_report.get("results", [])
+    checks = {
+        "five simulated sessions": summary.get("sessions") == 5,
+        "all sessions pass": summary.get("passed_sessions") == 5 and summary.get("failed_sessions") == 0,
+        "aggregate score perfect": summary.get("score") == 50 and summary.get("max_score") == 50,
+        "each session is 10/10": all(
+            result.get("score") == 10 and result.get("max_score") == 10 and result.get("passed")
+            for result in results
+        ),
+        "mp4 exists": mp4_path.exists() and mp4_path.stat().st_size > 0,
+        "transcript exists": transcript_path.exists() and transcript_path.stat().st_size > 0,
+    }
+    return AuditItem(
+        id="five-user-simulations",
+        requirement=(
+            "Five realistic simulated-user sessions each score 10/10 and show actual user "
+            "answers changing the resulting plan."
+        ),
+        passed=all(checks.values()),
+        evidence=(
+            path_label(REPO_ROOT / "scripts/merak_plan_user_sim.py"),
+            path_label(REPO_ROOT / "artifacts/merak-plan-user-sim/merak-plan-user-sim-report.md"),
+            path_label(REPO_ROOT / "artifacts/merak-plan-user-sim/merak-plan-user-sim.txt"),
+            path_label(mp4_path),
         ),
         notes=failed_checks(checks),
     )

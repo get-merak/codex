@@ -1,6 +1,6 @@
 # Merak Plan Completion Audit
 
-Passed: 9 / 9
+Passed: 10 / 10
 Failed: 0
 
 | Requirement | Status | Evidence | Notes |
@@ -13,6 +13,7 @@ Failed: 0
 | required-plan-fields | PASS | artifacts/merak-plan-eval/merak-plan-reference-submissions.json | - |
 | tool-selection | PASS | scripts/merak_plan_eval_report.py<br>artifacts/merak-plan-eval/merak-plan-eval-report.json | - |
 | terminal-mp4-demo | PASS | artifacts/merak-plan-demo/merak-plan-demo.mp4<br>artifacts/merak-plan-demo/merak-plan-demo.txt<br>artifacts/merak-plan-demo/merak-plan-demo-eval-report.json | - |
+| five-user-simulations | PASS | scripts/merak_plan_user_sim.py<br>artifacts/merak-plan-user-sim/merak-plan-user-sim-report.md<br>artifacts/merak-plan-user-sim/merak-plan-user-sim.txt<br>artifacts/merak-plan-user-sim/merak-plan-user-sim.mp4 | - |
 | modal-cleanup-spend | PASS | /Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json | - |
 
 ## Modal Spend

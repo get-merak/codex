@@ -1,0 +1,317 @@
+{
+  "results": [
+    {
+      "gates": [
+        {
+          "details": [],
+          "name": "golden evaluator contract",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "three-or-fewer questions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all questions are allowed decision topics",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all required tools selected",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "forbidden tools excluded",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "required plan fields present",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "discoverable unknowns separated from user decisions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "user decisions captured from answers",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "confidence gaps and residual risks visible",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "plan adapts to simulated user answers",
+          "passed": true
+        }
+      ],
+      "golden_findings": [],
+      "max_score": 10,
+      "passed": true,
+      "scenario_id": "ui-work",
+      "score": 10,
+      "session_id": "sim-ui-ops-dashboard",
+      "title": "Ops dashboard triage"
+    },
+    {
+      "gates": [
+        {
+          "details": [],
+          "name": "golden evaluator contract",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "three-or-fewer questions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all questions are allowed decision topics",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all required tools selected",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "forbidden tools excluded",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "required plan fields present",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "discoverable unknowns separated from user decisions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "user decisions captured from answers",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "confidence gaps and residual risks visible",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "plan adapts to simulated user answers",
+          "passed": true
+        }
+      ],
+      "golden_findings": [],
+      "max_score": 10,
+      "passed": true,
+      "scenario_id": "backend-work",
+      "score": 10,
+      "session_id": "sim-backend-review-status",
+      "title": "Persisted review status field"
+    },
+    {
+      "gates": [
+        {
+          "details": [],
+          "name": "golden evaluator contract",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "three-or-fewer questions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all questions are allowed decision topics",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all required tools selected",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "forbidden tools excluded",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "required plan fields present",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "discoverable unknowns separated from user decisions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "user decisions captured from answers",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "confidence gaps and residual risks visible",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "plan adapts to simulated user answers",
+          "passed": true
+        }
+      ],
+      "golden_findings": [],
+      "max_score": 10,
+      "passed": true,
+      "scenario_id": "infra-work",
+      "score": 10,
+      "session_id": "sim-infra-remote-dev",
+      "title": "Staging remote dev boot failure"
+    },
+    {
+      "gates": [
+        {
+          "details": [],
+          "name": "golden evaluator contract",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "three-or-fewer questions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all questions are allowed decision topics",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all required tools selected",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "forbidden tools excluded",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "required plan fields present",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "discoverable unknowns separated from user decisions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "user decisions captured from answers",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "confidence gaps and residual risks visible",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "plan adapts to simulated user answers",
+          "passed": true
+        }
+      ],
+      "golden_findings": [],
+      "max_score": 10,
+      "passed": true,
+      "scenario_id": "risky-destructive-action",
+      "score": 10,
+      "session_id": "sim-risky-demo-data-cleanup",
+      "title": "Staging demo data cleanup"
+    },
+    {
+      "gates": [
+        {
+          "details": [],
+          "name": "golden evaluator contract",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "three-or-fewer questions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all questions are allowed decision topics",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "all required tools selected",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "forbidden tools excluded",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "required plan fields present",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "discoverable unknowns separated from user decisions",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "user decisions captured from answers",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "confidence gaps and residual risks visible",
+          "passed": true
+        },
+        {
+          "details": [],
+          "name": "plan adapts to simulated user answers",
+          "passed": true
+        }
+      ],
+      "golden_findings": [],
+      "max_score": 10,
+      "passed": true,
+      "scenario_id": "tool-choice-ambiguity",
+      "score": 10,
+      "session_id": "sim-radix-safari-tooling",
+      "title": "Flaky UI library issue"
+    }
+  ],
+  "summary": {
+    "failed_sessions": 0,
+    "max_score": 50,
+    "passed_sessions": 5,
+    "per_session_score": "10/10 required",
+    "score": 50,
+    "sessions": 5
+  }
+}

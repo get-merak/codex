@@ -84,6 +84,18 @@
     },
     {
       "evidence": [
+        "scripts/merak_plan_user_sim.py",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim-report.md",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim.txt",
+        "artifacts/merak-plan-user-sim/merak-plan-user-sim.mp4"
+      ],
+      "id": "five-user-simulations",
+      "notes": [],
+      "passed": true,
+      "requirement": "Five realistic simulated-user sessions each score 10/10 and show actual user answers changing the resulting plan."
+    },
+    {
+      "evidence": [
         "/Users/degirmenci/apps/merak/app/artifacts/modal-spend/codex-merak-plan-summary-review-tui-rerun-post.json"
       ],
       "id": "modal-cleanup-spend",
@@ -102,7 +114,7 @@
   },
   "summary": {
     "failed": 0,
-    "passed": 9,
-    "total": 9
+    "passed": 10,
+    "total": 10
   }
 }
